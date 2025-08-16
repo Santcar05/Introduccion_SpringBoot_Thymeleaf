@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entities.Student;
 import com.example.demo.service.StudentService;
@@ -50,8 +51,19 @@ public class StudentController {
         return "mostrarTodosEstudiantes";
     }
 
+    //http://localhost:8080/student/1
     @GetMapping("/{id}")
     public String getMethodName(Model model, @PathVariable("id") Integer identificador) {
+        Student student = service.searchByID(identificador);
+        model.addAttribute("estudiante", student);
+
+        return "mostrarEstudiante";
+    }
+
+    //Utilizar este cuando son consultas complejas
+    //http://localhost:8080/student?id=1
+    @GetMapping(params = "id")
+    public String getMethodName2(Model model, @RequestParam("id") Integer identificador) {
         Student student = service.searchByID(identificador);
         model.addAttribute("estudiante", student);
 

@@ -10,7 +10,7 @@
     <!-- Recorrer en forma de lista-->
     <ul>
       <li th:each="estu : ${estudiantes}">
-        <a th:text="${estu.nombre}" th:href="@{/student/{id}(id=${estu.id})}"></a>
+        <a th:text="${estu.nombre}" th:href="@{/student(id=${estu.id})}"></a>
       </li>
     </ul>
 
