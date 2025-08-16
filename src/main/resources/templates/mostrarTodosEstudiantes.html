@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Mostrar todos los estudiantes</h1>
+    <!-- Recorrer en forma de lista-->
+    <ul>
+      <li th:each="estu : ${estudiantes}">
+        <a th:text="${estu.nombre}" th:href="@{/student/{id}(id=${estu.id})}"></a>
+      </li>
+    </ul>
+
+    <!-- Recorrer en forma de tabla-->
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Semestre</th>
+          <th>Correo</th>
+          <th>Imagen</th>
+        </tr>
+        <tr th:each="estudiante : ${estudiantes}">
+          <td th:text="${estudiante.id}"></td>
+          <td th:text="${estudiante.nombre}"></td>
+          <td th:text="${estudiante.apellido}"></td>
+          <td th:text="${estudiante.semestre}"></td>
+          <td th:text="${estudiante.correo}"></td>
+          <td><img th:src="${estudiante.imagenURL}" /></td>
+        </tr>
+      </thead>
+    </table>
+  </body>
+</html>
