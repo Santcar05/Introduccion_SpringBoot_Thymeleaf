@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,8 @@ public class StudentController {
 
     @Autowired
     private StudentService service;
+
+    Logger looger = LoggerFactory.getLogger(StudentController.class);
 
     @GetMapping("/quemado")
     public String mostrarInformacionQuemada(Model model) {
@@ -90,8 +94,16 @@ public class StudentController {
     //En el parametro usar ModelAttribute para tomar la info que viene por el cuerpo de la peticion
     @PostMapping("/add")
     public String agregarEstudiante(@ModelAttribute("estudiante") Student student) {
+        looger.info(student.getId() + " " + student.getNombre() + " " + student.getApellido() + " " + student.getSemestre() + " " + student.getCorreo());
         service.save(student);
         return "redirect:/student";
+    }
+
+    @GetMapping("/update/{id}")
+    public String mostrarFormularioActualizar(Model model, @PathVariable("id") Integer identificador) {
+        Student student = service.searchByID(identificador);
+        model.addAttribute("estudiante", student);
+        return "crearEstudiante";
     }
 
 }

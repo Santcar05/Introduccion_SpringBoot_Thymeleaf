@@ -35,10 +35,15 @@ public class StudentRepository {
 
     //CREATE
     public void save(Student student) {
-        int tam = estudiantes.size();
-        int lastId = estudiantes.get(tam).getId();
-        student.setId(lastId + 1);
-        estudiantes.put(student.getId(), student);
+        if (student.getId() == null) {
+            int tam = estudiantes.size();
+            int lastId = estudiantes.get(tam).getId();
+            student.setId(lastId + 1);
+            estudiantes.put(student.getId(), student);
+        } else {
+            estudiantes.put(student.getId(), student);
+        }
+
     }
 
     //DELETE

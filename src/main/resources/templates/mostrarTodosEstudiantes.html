@@ -37,6 +37,7 @@
           <td><img th:src="${estudiante.imagenURL}" /></td>
           <td>
             <a th:href="@{/student/delete/{id}(id=${estudiante.id})}">Eliminar</a>
+            <a th:href="@{/student/update/{id}(id=${estudiante.id})}">UPDATE</a>
           </td>
         </tr>
       </thead>

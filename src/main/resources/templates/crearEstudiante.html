@@ -7,6 +7,9 @@
   </head>
   <body>
     <form th:object="${estudiante}" th:action="@{/student/add}" method="post">
+      <!--Utilizar hidden para ocultar el id y es necesario colocar el campo id en nulo para que al actualizar 
+      no se mande el id de la peticion como null sino que tome el id de la base de datos registrado por si se tiene que actualizar-->
+      <input type="hidden" th:field="*{id}" />
       <label for="nombre">Nombre</label>
       <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingrese su nombre" />
 
