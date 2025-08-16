@@ -24,6 +24,9 @@
           <th>Semestre</th>
           <th>Correo</th>
           <th>Imagen</th>
+          <html>
+            Acciones
+          </html>
         </tr>
         <tr th:each="estudiante : ${estudiantes}">
           <td th:text="${estudiante.id}"></td>
@@ -32,8 +35,13 @@
           <td th:text="${estudiante.semestre}"></td>
           <td th:text="${estudiante.correo}"></td>
           <td><img th:src="${estudiante.imagenURL}" /></td>
+          <td>
+            <a th:href="@{/student/delete/{id}(id=${estudiante.id})}">Eliminar</a>
+          </td>
         </tr>
       </thead>
     </table>
+
+    <a type="button" th:href="@{/student/add}">Agregar Estudiante</a>
   </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form th:object="${estudiante}" th:action="@{/student/add}" method="post">
+      <label for="nombre">Nombre</label>
+      <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingrese su nombre" />
+
+      <label for="apellido">Apellido</label>
+      <input th:field="*{apellido}" type="text" id="apellido" placeholder="Ingrese su apellido" />
+
+      <label for="semestre">Semestre</label>
+      <input th:field="*{semestre}" type="number" id="semestre" placeholder="Ingrese su semestre" />
+
+      <label for="correo">Correo</label>
+      <input th:field="*{correo}" type="email" id="correo" placeholder="Ingrese su correo" />
+
+      <label for="imagen">Imagen</label>
+      <input th:field="*{imagenURL}" type="text" id="imagen" placeholder="Ingrese su imagen" />
+
+      <button type="submit">Guardar</button>
+    </form>
+  </body>
+</html>
