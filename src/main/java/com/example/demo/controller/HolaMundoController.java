@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HolaMundoController {
 
     //Que tipo de peticion se estará haciendo
+    //http://localhost:8080/mundo/hola
     @GetMapping("/hola")
     //@ResponseBody //Retornar codigo de html en la función(NO UTILIZAR CUANDO SE UTILIZA THYMELEAF)
     public String holaMundo() {
         return "holaMundo";//Sin la extension
     }
 
+    //http://localhost:8080/mundo/chao
     @GetMapping("chao")
     public String chaoMundo() {
         return "chaoMundo";
