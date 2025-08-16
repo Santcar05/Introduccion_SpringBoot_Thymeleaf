@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/datosUsuario.css">
+    <!-- Otra manera de colocar la url con thymeleaf si no funciona-->
+   <!-- <link rel="stylesheet" th:href="@{/CSS/datosUsuario.css}"> -->
     <title>Document</title>
   </head>
   <body>
@@ -18,5 +21,7 @@
     <p th:text="${estudiante.semestre}"></p>
     <p th:text="${estudiante.correo}"></p>
     <img th:src="${estudiante.imagenURL}"></img>
+    <!--No colocar en la url static, solo la carpeta hijo con su contenido -->
+    <img src="/images/logo_creatiive.jpg" alt="">
   </body>
 </html>
