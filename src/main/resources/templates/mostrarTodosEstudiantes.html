@@ -10,7 +10,10 @@
     <!-- Recorrer en forma de lista-->
     <ul>
       <li th:each="estu : ${estudiantes}">
-        <a th:text="${estu.nombre}" th:href="@{/student(id=${estu.id})}"></a>
+        <a th:href="@{/student(id=${estu.id})}">
+          <span th:text="${estu.nombre}"></span>
+          <span th:if="${estu.semestre > 10}">🎓</span>
+        </a>
       </li>
     </ul>
 
