@@ -1,8 +1,12 @@
 package com.example.demo.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 //lombok: Facilitar código template
 //@Data
@@ -10,6 +14,7 @@ import jakarta.persistence.Id;
 //@NoArgsConstructor
 @Entity
 public class Student {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -18,6 +23,9 @@ public class Student {
     private Integer semestre;
     private String correo;
     private String imagenURL;
+
+    @OneToMany(mappedBy = "estudiante")
+    private List<Homework> tareas = new ArrayList<>();
 
     public Student() {
     }
@@ -32,7 +40,7 @@ public class Student {
     }
 
     //IMPORTANTE PARA USAR JPA TENER UN CONSTRUCTOR CON TODOS LOS CAMPOS MENOS EL ID Y OTRO SIN PARAMETROS
-        public Student( String nombre, String apellido, Integer semestre, String correo, String imagenURL) {
+    public Student(String nombre, String apellido, Integer semestre, String correo, String imagenURL) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.semestre = semestre;
@@ -88,5 +96,12 @@ public class Student {
         this.imagenURL = imagenURL;
     }
 
-}
+    public List<Homework> getTareas() {
+        return tareas;
+    }
 
+    public void setTareas(List<Homework> tareas) {
+        this.tareas = tareas;
+    }
+
+}
