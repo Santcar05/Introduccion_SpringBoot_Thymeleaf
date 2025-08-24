@@ -6,11 +6,8 @@ import com.example.demo.entities.Student;
 
 public interface StudentService {
 
-    public Student searchByID(Integer id);
-
     public Collection<Student> searchAll();
 
     public void save(Student student);
 
-    public void delete(Integer id);
 }

@@ -14,10 +14,6 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-    @Override
-    public Student searchByID(Integer id) {
-        return studentRepository.findByIDStudent(id);
-    }
 
     @Override
     public Collection<Student> searchAll() {
@@ -29,9 +25,5 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.save(student);
     }
 
-    @Override
-    public void delete(Integer id) {
-        studentRepository.delete(id);
-    }
 
 }

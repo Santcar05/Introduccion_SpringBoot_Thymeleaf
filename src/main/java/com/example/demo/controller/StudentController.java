@@ -35,7 +35,7 @@ public class StudentController {
         model.addAttribute("numero", 2);
 
         //Crear estudiante
-        Student student = new Student(1, "Juan", "Perez", 3, "X3Y8S@example.com", "https://img.freepik.com/vector-premium/personaje-dibujos-animados-estudiante-escribiendo-papel-vector-libre_310181-81.jpg");
+        Student student = new Student("Juan", "Perez", 3, "X3Y8S@example.com", "https://img.freepik.com/vector-premium/personaje-dibujos-animados-estudiante-escribiendo-papel-vector-libre_310181-81.jpg");
         model.addAttribute("estudiante", student);
 
         return "mostrarEstudiante";
@@ -60,8 +60,8 @@ public class StudentController {
     //http://localhost:8080/student/1
     @GetMapping("/{id}")
     public String getMethodName(Model model, @PathVariable("id") Integer identificador) {
-        Student student = service.searchByID(identificador);
-        model.addAttribute("estudiante", student);
+        //Student student = service.searchByID(identificador);
+       // model.addAttribute("estudiante", student);
 
         return "mostrarEstudiante";
     }
@@ -70,8 +70,8 @@ public class StudentController {
     //http://localhost:8080/student?id=1
     @GetMapping(params = "id")
     public String getMethodName2(Model model, @RequestParam("id") Integer identificador) {
-        Student student = service.searchByID(identificador);
-        model.addAttribute("estudiante", student);
+        //Student student = service.searchByID(identificador);
+        //model.addAttribute("estudiante", student);
 
         return "mostrarEstudiante";
     }
@@ -87,7 +87,7 @@ public class StudentController {
 
     @GetMapping("/delete/{id}")
     public String delete(Model model, @PathVariable("id") Integer identificador) {
-        service.delete(identificador);
+       // service.delete(identificador);
         return "redirect:/student";
     }
 
@@ -101,8 +101,8 @@ public class StudentController {
 
     @GetMapping("/update/{id}")
     public String mostrarFormularioActualizar(Model model, @PathVariable("id") Integer identificador) {
-        Student student = service.searchByID(identificador);
-        model.addAttribute("estudiante", student);
+        //Student student = service.searchByID(identificador);
+       // model.addAttribute("estudiante", student);
         return "crearEstudiante";
     }
 

@@ -18,12 +18,12 @@ public class DemoApplication {
 
     @Bean/*Objetos globales que pueden ser accedios en cualquier parte del proeycto */
     public Student estudiante() {
-        return new Student(1, "Ana", "García", 4, "X3Y8S@example.com", "https://img.freepik.com/vector-premium/personaje-dibujos-animados-estudiante-escribiendo-papel-vector-libre_310181-81.jpg");
+        return new Student("Ana", "García", 4, "X3Y8S@example.com", "https://img.freepik.com/vector-premium/personaje-dibujos-animados-estudiante-escribiendo-papel-vector-libre_310181-81.jpg");
     }
 
     @Bean/*Objetos globales que pueden ser accedios en cualquier parte del proeycto */
     public Student estudiante2() {
-        return new Student(1, "Pedro", "Gonzalez", 4, "ABVG@example.com", "https://img.freepik.com/vector-premium/personaje-dibujos-animados-estudiante-escribiendo-papel-vector-libre_310181-81.jpg");
+        return new Student("Pedro", "Gonzalez", 4, "ABVG@example.com", "https://img.freepik.com/vector-premium/personaje-dibujos-animados-estudiante-escribiendo-papel-vector-libre_310181-81.jpg");
     }
 
 }
