@@ -14,7 +14,6 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-
     @Override
     public Collection<Student> searchAll() {
         return studentRepository.findAll();
@@ -24,6 +23,5 @@ public class StudentServiceImpl implements StudentService {
     public void save(Student student) {
         studentRepository.save(student);
     }
-
 
 }
